@@ -3,5 +3,5 @@ class Model {
 
   }
 }
-
+const newModel = new Model()
 module.exports = Model
