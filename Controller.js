@@ -4,13 +4,15 @@ class Controller {
     this.view = view
   }
 
-  run() {
+  async run() {
     // Просим экземпляр класса модели прочитать папку со всеми темами и составить меню.
     // Попутно передаем метод контроллера this.printTopicsController,
     // так как нам нужно отправить сформинованное меню на вывод в экземпляр класса view
     // после того, как завершится асинхронная операция чтения папки
     // Здесь this.printTopicsController — является callback'ом  
-    this.model.readTopics(this.printTopicsController)
+    console.log(await this.model.getTopics());
+    console.log(await this.model.getQuestions(1));
+    //this.model.readTopics(this.printTopicsController)
   }
 
   printTopicsController(topicsMenu) {
