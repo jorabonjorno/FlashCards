@@ -1,10 +1,12 @@
 const fsp = require('fs/promises');
-const Controller = require("./Controller");
-const Model = require("./Model");
-const View = require("./View");
+const rl  = require('readline/promises').createInterface(process.stdin, process.stdout);
 
-const model = new Model(fsp);
-const view = new View
-const controller = new Controller(model, view)
+const Controller = require("./src/Controller");
+const Model      = require("./src/Model");
+const View       = require("./src/View");
 
-controller.run()
+const model      = new Model(fsp);
+const view       = new View(rl);
+const controller = new Controller(model, view);
+
+controller.run();
